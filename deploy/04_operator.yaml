@@ -16,8 +16,9 @@ spec:
       serviceAccountName: akrobateo
       containers:
         - name: akrobateo
-          image: registry.pharos.sh/kontenapharos/akrobateo:latest
-          imagePullPolicy: Always
+          # image: ghcr.io/alexfouche/akrobateo:0.1.1
+          image: lukasauerbeck/akrobateo-mirror:latest
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               memory: 20M
@@ -26,6 +27,8 @@ spec:
               memory: 100M
               cpu: 200m
           env:
+            - name: LB_IMAGE
+              value: ghcr.io/alexfouche/akrobateo-lb:0.1.1.20220823_0736.f858444
             - name: WATCH_NAMESPACE
               value: ""
             - name: POD_NAME
