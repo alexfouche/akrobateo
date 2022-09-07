@@ -212,7 +212,7 @@ func newDaemonSetForService(svc *corev1.Service) *appsv1.DaemonSet {
 							Command: []string{
 								"sh",
 								"-c",
-								"sysctl -w net.ipv4.ip_forward=1",
+								"sysctl net.ipv4.ip_forward ; echo Should do: sysctl -w net.ipv4.ip_forward=1",
 							},
 							SecurityContext: &corev1.SecurityContext{
 								Privileged: &trueVal,
