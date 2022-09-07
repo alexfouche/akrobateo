@@ -64,6 +64,8 @@ patch-akrobateo-lb-deployment-0.1.1: line_red  ## patch Kubernetes deployment of
 deploy-akrobateo: line_red  ## submit deployment of app 'akrobateo' to Kubernetes
 	kubectl apply -k deploy
 
+delete-akrobateo: line_red  ## submit deployment of app 'akrobateo' to Kubernetes
+	kubectl delete -k deploy
 
 clean:  # Clean some remnant files
 	- rm .make.* 2>/dev/null || true
